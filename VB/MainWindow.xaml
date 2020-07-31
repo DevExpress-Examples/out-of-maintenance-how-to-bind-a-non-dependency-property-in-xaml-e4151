@@ -1,0 +1,18 @@
+<Window x:Class="RichEditDependencyPropertyWrapperWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
+        xmlns:local="clr-namespace:RichEditDependencyPropertyWrapperWpf"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <CheckBox Name="checkBox1" Content="ReadOnly" Height="20" HorizontalAlignment="Center" />
+        
+        <dxre:RichEditControl Name="richEditControl1" Text="richEditControl1" Grid.Row="1" 
+                              local:RichEditHelper.IsReadOnly="{Binding ElementName=checkBox1, Path=IsChecked}"/>
+    </Grid>
+</Window>
